@@ -1,48 +1,51 @@
-<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path "card-pic.jpg" %>');">
-  <div class="banner-description">
-    <h2><%= @cocktail.name %></h2>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path "banner-pic-show.jpg" %>');">
+  <div class="banner-content">
+    <div class="banner-description">
+      <h1><%= @cocktail.name %></h1>
+    </div>
+    <div class="btn btn-primary btn-show">
+      <%= link_to "Go Back", cocktails_path %>
+    </div>
   </div>
 </div>
 
 
-<div class="container">
-  <div class="cocktail-description">
-    <h3>Description</h3>
-    <% if @cocktail.doses.count == 0 %>
-      <p>No descriptions added yet!</p>
-    <% else %>
-      <% @cocktail.doses.each do |dose| %>
-        <%= dose.description %>
+<div class="wrapper-show">
+  <div class="container cocktail-info">
+    <div class="cocktail-description">
+      <h3>Description</h3>
+      <% if @cocktail.doses.count == 0 %>
+        <p>No descriptions added yet!</p>
+      <% else %>
+        <p><%= @cocktail.recipe %></p>
       <% end %>
-    <% end %>
-  </div>
-  <div class="cocktail-recipe">
-    <h3>Ingredients</h3>
-    <% if @cocktail.doses.count == 0 %>
-      <p>No descriptions added yet!</p>
-    <% else %>
-      <% @cocktail.doses.each do |dose| %>
-        <p>
-          <strong><%= Ingredient.find(dose.ingredient_id).name %></strong> -
-          <%= link_to "Delete", cocktail_dose_path(@cocktail, dose),
+      <div class="btn btn-primary btn-show"><%= link_to 'Edit', edit_cocktail_path %></div>
+      <div class="btn btn-primary btn-show">
+        <%= link_to "Delete cocktail", cocktail_path(@cocktail),
           method: "DELETE",
           data: { confirm: "Are you sure?"} %>
-        </p>
-       <% end %>
-  <% end %>
+      </div>
+    </div>
+    <div class="cocktail-recipe">
+      <h3>Ingredients</h3>
+      <% if @cocktail.doses.count == 0 %>
+        <p>No descriptions added yet!</p>
+      <% else %>
+        <% @cocktail.doses.each do |dose| %>
+          <p>
+            <strong><%= Ingredient.find(dose.ingredient_id).name %></strong> -
+            <%= dose.description %>
+            <%= link_to cocktail_dose_path(@cocktail, dose),
+            method: "DELETE",
+            data: { confirm: "Are you sure?"} do%>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </p>
+         <% end %>
+    <% end %>
+    <div class="btn btn-primary btn-show">
+      <%= link_to 'Add an ingredient',  new_cocktail_dose_path(@cocktail) %>
+    </div>
+    </div>
   </div>
-</div>
 
-
-
-
-
-
-
-<%= link_to 'Add doses',  new_cocktail_dose_path(@cocktail) %>
-
-<%= link_to 'Edit', edit_cocktail_path %>
-
-<%= link_to "Delete cocktail", cocktail_path(@cocktail),
-  method: "DELETE",
-  data: { confirm: "Are you sure?"} %>

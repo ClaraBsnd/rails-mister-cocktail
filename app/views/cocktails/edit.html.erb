@@ -1,5 +1,19 @@
-<h1>Edit <%= @cocktail.name %></h1>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path "banner-pic-show.jpg" %>');">
+  <div class="banner-content">
+    <div class="banner-description">
+      <h1>Edit <%= @cocktail.name %></h1>
+    </div>
+    <div class="btn btn-primary btn-show">
+      <%= link_to "Go Back", cocktail_path(@cocktail) %>
+    </div>
+  </div>
+</div>
 
-<%= render 'cocktails_form' %>
+<div class="container form-cocktail">
+  <div class="form-cocktail-content">
+    <%= render 'cocktails_form' %>
+  </div>
+</div>
 
-<%= link_to 'Go Back', cocktail_path(@cocktail) %>
+
+

@@ -1,9 +1,10 @@
-.wrapper{
+.wrapper-nav{
   display: block;
 }
 
 .navigation-bar {
-  position: fixed;
+  z-index: 10 !important;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -47,4 +48,18 @@
 }
 .navbar-cocktail-dropdown-menu li > a {
   color: white;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky + .content {
+  padding-top: 102px;
 }

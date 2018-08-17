@@ -1,5 +1,12 @@
-<h1>Create a new dose</h1>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path "card-pic.jpg" %>');">
+  <div class="banner-description">
+    <h1>Chreate a new dose</h1>
+  </div>
+</div>
 
-<%= render 'doses_form' %>
+<div class="container form-dose">
+  <%= render 'doses_form' %>
+  <%= link_to "Go back", cocktail_path(@cocktail.id) %>
+</div>
 
-<%= link_to "Go back", cocktail_path(@cocktail.id) %>
+

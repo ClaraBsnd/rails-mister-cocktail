@@ -1,5 +1,16 @@
-<h1>Create a new cocktail</h1>
+<div class="banner-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= asset_path "banner-pic-show.jpg" %>');">
+  <div class="banner-content">
+    <div class="banner-description">
+      <h1>Create a new cocktail</h1>
+    </div>
+    <div class="btn btn-primary btn-show">
+      <%= link_to "Go Back", cocktails_path %>
+    </div>
+  </div>
+</div>
 
-<%= render 'cocktails_form' %>
+<div class="container">
+  <%= render 'cocktails_form' %>
+</div>
 
-<%= link_to "Go back", cocktails_path %>
+

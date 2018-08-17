@@ -1,0 +1,19 @@
+.form-cocktail {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.form-go-back {
+
+  align-self: flex-start;
+}
+.form-go-back a{
+  font-size: 25px;
+  margin-top: 20px;
+  color: black;
+}
+
+.form-dose {
+  margin-top: 20px;
+}
