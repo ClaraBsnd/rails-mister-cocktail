@@ -9,9 +9,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet">
   </head>
 
   <body>
+    <div class="wrapper">
+      <div class="navigation-bar">
+        <div class="navigation">
+          <div class="welcome">
+            <h1>Cocktail Lab<h1>
+          </div>
+          <div class="nav-burger">
+            <div class="dropdown">
+              <i class="fas fa-glass-martini" data-toggle="dropdown" id="navbar-cocktail-menu"></i>
+              <ul class="dropdown-menu dropdown-menu-left navbar-cocktail-dropdown-menu">
+                <li><%= link_to "Cocktail List", cocktails_path %></li>
+                <li><%= link_to "Add a Cocktail", new_cocktail_path %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <%= yield %>
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
     <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
